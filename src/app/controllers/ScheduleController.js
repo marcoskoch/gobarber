@@ -1,12 +1,4 @@
-import {
-  startOfDay,
-  endOfDay,
-  setHours,
-  setMinutes,
-  setSeconds,
-  format,
-  isAfter,
-} from 'date-fns';
+import { startOfDay, endOfDay, parseISO } from 'date-fns';
 import { Op } from 'sequelize';
 
 import Appointment from '../models/Appointment';

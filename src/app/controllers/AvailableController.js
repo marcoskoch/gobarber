@@ -8,7 +8,6 @@ import {
   isAfter,
 } from 'date-fns';
 import { Op } from 'sequelize';
-
 import Appointment from '../models/Appointment';
 
 class AvailableController {
@@ -23,8 +22,8 @@ class AvailableController {
 
     const appointments = await Appointment.findAll({
       where: {
-        provider_id: req.params.providerIde,
-        canceled_att: null,
+        provider_id: req.params.providerId,
+        canceled_at: null,
         date: {
           [Op.between]: [startOfDay(searchDate), endOfDay(searchDate)],
         },
@@ -44,6 +43,7 @@ class AvailableController {
       '17:00',
       '18:00',
       '19:00',
+      '20:00',
     ];
 
     const avaiable = schedule.map(time => {
